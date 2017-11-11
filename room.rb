@@ -1,11 +1,17 @@
 class Room
-  attr_accessor :guests, :songs
+  attr_accessor :room_name, :guests, :songs, :room_fee
 
   def initialize(input_room_name)
     @room_name = input_room_name
     @room_size = 8
     @guests = []
     @songs = []
+    @room_fee = {
+      "Rock" => 10,
+      "Hip-Hop" => 8,
+      "Pop" => 3,
+      "Mix n Mash" => 5
+    }
   end
 
   def check_in(guest)
