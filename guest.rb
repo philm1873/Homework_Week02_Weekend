@@ -8,7 +8,7 @@ class Guest
     @favourite_song = input_favourite_song
   end
 
-  def pay_entrants_fee(room)
+  def pay_entrance_fee(room)
     if @wallet >= room.room_fee[room.room_name]
       @wallet -= room.room_fee[room.room_name]
       return true

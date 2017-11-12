@@ -17,16 +17,16 @@ class TestGuest < MiniTest::Test
     refute_nil(@guest1.wallet, "No number generated")
   end
 
-  def test_pay_entrants_fee__enough
+  def test_pay_entrance_fee__enough
     @guest1.wallet = 50
-    result = @guest1.pay_entrants_fee(@room)
+    result = @guest1.pay_entrance_fee(@room)
     assert_equal(40, @guest1.wallet)
     assert_equal(true, result)
   end
 
-  def test_pay_entrants_fee__not_enough
+  def test_pay_entrance_fee__not_enough
     @guest1.wallet = 5
-    result = @guest1.pay_entrants_fee(@room)
+    result = @guest1.pay_entrance_fee(@room)
     assert_equal(5, @guest1.wallet)
     assert_equal(false, result)
   end
