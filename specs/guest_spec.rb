@@ -8,6 +8,7 @@ class TestGuest < MiniTest::Test
 
   def setup
     @song1 = Song.new("RATM", "Wake Up")
+    @song2 = Song.new("N.W.A.", "Straight Outta Compton")
     @room = Room.new("Rock")
     @guest1 = Guest.new("Phil", @song1)
   end
@@ -30,10 +31,16 @@ class TestGuest < MiniTest::Test
     assert_equal(false, result)
   end
 
-  def test_favourite_song_woop
+  def test_favourite_song_woop__pass
     @room.add_song(@song1)
     result = @guest1.favourite_song_woop(@room)
     assert_equal("Whoo!! I'm gonna tear this place up!!", result)
+  end
+
+  def test_favourite_song_woop__fail
+    @room.add_song(@song2)
+    result = @guest1.favourite_song_woop(@room)
+    assert_equal("This playlist is minging", result)
   end
 
 end
