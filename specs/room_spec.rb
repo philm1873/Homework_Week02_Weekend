@@ -1,5 +1,6 @@
 require("minitest/autorun")
 require("minitest/rg")
+require("pry")
 require_relative("../room.rb")
 require_relative("../guest.rb")
 require_relative("../song.rb")
@@ -8,16 +9,20 @@ class TestRoom < MiniTest::Test
 
   def setup
     @room = Room.new("Rock")
-    @guest1 = Guest.new("Phil")
-    @guest2 = Guest.new("Alex")
-    @guest3 = Guest.new("Matt")
-    @guest4 = Guest.new("Jardine")
-    @guest5 = Guest.new("Ben")
-    @guest6 = Guest.new("Sophie")
-    @guest7 = Guest.new("Mark")
-    @guest8 = Guest.new("Fraser")
-    @guest9 = Guest.new("Kris")
     @song1 = Song.new("RATM", "Wake Up")
+    @song2 = Song.new("N.W.A.", "Express Yo Self")
+    @song3 = Song.new("The Rolling Stones", "Paint it Black")
+    @song4 = Song.new("Jimi Hendrix", "Little Wing")
+    @guest1 = Guest.new("Phil", @song1)
+    @guest2 = Guest.new("Alex", @song2)
+    @guest3 = Guest.new("Matt", @song1)
+    @guest4 = Guest.new("Jardine", @song2)
+    @guest5 = Guest.new("Ben", @song3)
+    @guest6 = Guest.new("Sophie", @song4)
+    @guest7 = Guest.new("Mark", @song3)
+    @guest8 = Guest.new("Fraser", @song4)
+    @guest9 = Guest.new("Kris", @song2)
+    binding.pry
   end
 
   def test_check_in
